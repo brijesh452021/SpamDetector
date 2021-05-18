@@ -24,7 +24,7 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-  if (request.method=='POST'):
+  if request.method=='POST':
     message=request.form['message']
     wordcount=len(message.split())
 
@@ -64,4 +64,4 @@ def predict():
   return render_template("index.html")
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run()
