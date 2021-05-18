@@ -1,6 +1,6 @@
 **Spam Detector**
 
-Its a Machine Learning based project that detects if a message is a spam or not. **Bagging(Random Forest Classifier) and Boosting (XGBoost)** Technique is used to detect the spam. Below are some analysis done based on different feature engg.
+Its a Machine Learning based project that detects if a message is a spam or not. **Bagging(Random Forest Classifier) and Boosting (XGBoost)** Technique is used to detect the spam.Seaborn and matplotlib are used to visualize data. Below are some analysis done based on different feature engg.
 
 1. wordcount
 
