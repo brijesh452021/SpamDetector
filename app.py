@@ -15,7 +15,8 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 nltk.download('stopwords')
 
-model = pickle.load(open('spamclassifier.pkl', 'rb'))
+spamModel = pickle.load(open('spamclassifier_1.pkl', 'rb'))
+tfidfModel= pickle.load(open('tfidf_transform.pkl', 'rb'))
 app = Flask(__name__)
 
 @app.route('/')
@@ -39,29 +40,27 @@ def predict():
     for character in words:
       if character.isdigit():
         digitPresent=1
+    data=[message]
+    tfidfVectors = tfidfModel.transform(data).toarray()
+    tfidfList=tfidfVectors.tolist()[0]
+    #print("tfidfList=",tfidfList)
+    temp_List=[wordcount,specialCharPresent,digitPresent]
+    temp_List.extend(tfidfList)
+    #print("temp_List",temp_List)
 
-    stemmer=PorterStemmer()
-    message = re.sub(pattern='[^a-zA-Z]', repl=' ',string=message)
-    message = message.lower()
-    words = [stemmer.stem(word) for word in message.split() if word not in stopwords.words('english')]
-    message=' '.join(words)
+    prediction=spamModel.predict([temp_List])
 
-    from sklearn.feature_extraction.text import TfidfVectorizer
-    tfidf = TfidfVectorizer()
-    Vectors=tfidf.fit_transform(list(message)).toarray()
 
-    prediction=model.predict([[wordcount,specialCharPresent,digitPresent,Vectors]])
-
-    
+    print(prediction)
 
     if prediction==1:
-      pred='Spam'
+      output='Spam'
     else:
-      pred='Not Spam'
+      output='Not Spam'
 
-    return render_template('result.html',prediction_text="Your Message is. {}".format(pred))
+    return render_template('result.html',prediction_text="Your Message is. {}".format(output))
 
   return render_template("index.html")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 	app.run()
