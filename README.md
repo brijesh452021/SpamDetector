@@ -28,7 +28,8 @@ Accuracy for Random Forest Classifier: F1Score-0.97
 
 Confusion Matrix for XGBoost
 
+![xgboostconfusionmatrix](https://user-images.githubusercontent.com/81951806/118632696-4c971000-b7ee-11eb-80ac-cd309aad9967.png)
 
-Accuracy for XGBoost: ROC-AUC-
+Accuracy for XGBoost: 0.96
 
 
