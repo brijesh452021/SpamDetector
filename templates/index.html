@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Spam Detector</title>
+		<style>
+			.centered {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				-webkit-transform: translate(-50%, -50%);
+				-moz-transform: translate(-50%, -50%);
+				-o-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+					}
+			.footer{
+				position: fixed;
+				top: 80%;
+				left: 50%;
+				}
+		</style>
+    </head>
+
+    <body>
+
+
+    	<h2><center>Spam Detector<center></h2>
+
+    	<div class="centered">
+    		<form action="{{ url_for('predict') }}" method="POST">
+        		<textarea name="message" rows="20" cols="80" placeholder="Please Enter Your Message"></textarea><br/>
+        		<input type="submit" value="Predict">
+        	</form>
+    	</div>
+
+        <div class='footer'>
+            <div class="contact">
+			<p class='footer-description'>Made by Brijesh Pandey.</p>
+                <a target="_self" href="https://www.linkedin.com/in/brijesh-pandey-36b852126/">
+				<img src="linkedin.gif" style="width:100px;height:100px;">
+				</a>
+            </div>
+        </div>
+
+    </body>
+</html>
