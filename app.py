@@ -23,7 +23,7 @@ app = Flask(__name__)
 def home():
   return render_template('index.html')
 
-"""@app.route('/predict',methods=['POST'])
+@app.route('/predict',methods=['POST'])
 def predict():
   if request.method=='POST':
     message=request.form['message']
@@ -58,7 +58,7 @@ def predict():
     else:
       output='Not Spam'
 
-    return render_template('result.html',prediction_text="Your Message is. {}".format(output))"""
+    return render_template('result.html',prediction_text="Your Message is. {}".format(output))
 
   return render_template("index.html")
 
