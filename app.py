@@ -52,14 +52,14 @@ def predict():
 
     prediction=model.predict([[wordcount,specialCharPresent,digitPresent,Vectors]])
 
-    output=round(prediction[0],2)
+    
 
-    if(output==1):
-      output='Spam'
+    if prediction==1:
+      pred='Spam'
     else:
-      output='Not Spam'
+      pred='Not Spam'
 
-    return render_template('result.html',prediction_text="Your Message is. {}".format(output))
+    return render_template('result.html',prediction_text="Your Message is. {}".format(pred))
 
   return render_template("index.html")
 
