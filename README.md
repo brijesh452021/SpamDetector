@@ -20,7 +20,7 @@ Its a Machine Learning based project that detects if a message is a spam or not.
 
 **TFIDFVectorizer** is used to convert the words to vectors.
 
-5. Words like Call, Guaranteed, Service are more frequest in Spam Messages.
+5. Words like Call, Guaranteed, Service,Customer are more frequest in Spam Messages.
 
 ![spamwordcloud](https://user-images.githubusercontent.com/81951806/118686662-d3b1ab80-b821-11eb-810b-cfaf18ae791e.png)
 
