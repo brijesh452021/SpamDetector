@@ -54,9 +54,9 @@ def predict():
     print(prediction)
 
     if prediction==1:
-      output='Spam'
+      output='Message is Spam'
     else:
-      output='Not Spam'
+      output='Message is Not Spam'
 
     return render_template('result.html',prediction_text="Your Message is. {}".format(output))
 
